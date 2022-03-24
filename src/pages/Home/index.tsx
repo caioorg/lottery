@@ -18,8 +18,10 @@ import {
   ContestWrapper,
   ContestWrapperMobile
 } from './styles'
+import Loading from '@app/components/Loading';
 
 const Home: React.FC = () => {
+  const [isLoading, setLoading] = useState<boolean>(false)
   const [typeLottery, setTypeLottery] = useState<{ id: number, nome: string}[]>([])
   const [lotteryContest, setLotteryContest] = useState<{ loteriaId: number, concursoId: string }[]>([])
   const [contest, setContest] = useState<IStateContest>({ data: '', id: '', loteria: '', numeros: []})
@@ -29,6 +31,7 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     async function initialState() {
+      setLoading(true)
       try {
         const typesLottery = await getAllTypesLottery()
         const lotteryConstest = await getAllLotteryContest()
@@ -42,6 +45,8 @@ const Home: React.FC = () => {
         }
       } catch (error) {
         // console.log(error)
+      } finally {
+        setLoading(false)
       }
     }
 
@@ -52,8 +57,14 @@ const Home: React.FC = () => {
     const idLottery = watch('idLottery')
 
     async function findByContestId(id?: string) {
-      const { data, status } = await findByUniqContestId(id)
-      if(status === 200 && data) setContest(data)
+      try {
+        setLoading(true)
+        const { data, status } = await findByUniqContestId(id)
+        if(status === 200 && data) setContest(data)  
+      } finally {
+        setLoading(false)
+      }
+      
     }
     
     if (idLottery) {
@@ -71,6 +82,7 @@ const Home: React.FC = () => {
 
   return (
     <Container>
+      {isLoading && <Loading /> }
       <SectionLottery name={nameLottery.replaceAll(' ', '-')}>
         <form>
           <Select data-testid='idLottery' {...register('idLottery')}>
