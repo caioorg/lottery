@@ -18,6 +18,36 @@ exports[`Pages Home should render properly 1`] = `
           <option
             value=""
           />
+          <option
+            value="0"
+          >
+            mega-sena
+          </option>
+          <option
+            value="1"
+          >
+            quina
+          </option>
+          <option
+            value="2"
+          >
+            lotofácil
+          </option>
+          <option
+            value="3"
+          >
+            lotomania
+          </option>
+          <option
+            value="4"
+          >
+            timemania
+          </option>
+          <option
+            value="5"
+          >
+            dia de sorte
+          </option>
         </select>
       </form>
       

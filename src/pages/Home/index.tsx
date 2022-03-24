@@ -52,13 +52,8 @@ const Home: React.FC = () => {
     const idLottery = watch('idLottery')
 
     async function findByContestId(id?: string) {
-      try {
-        const { data, status } = await findByUniqContestId(id)
-
-        if(status === 200 && data) setContest(data)
-      } catch (error) {
-        // console.log(error)
-      }
+      const { data, status } = await findByUniqContestId(id)
+      if(status === 200 && data) setContest(data)
     }
     
     if (idLottery) {
@@ -109,7 +104,7 @@ const Home: React.FC = () => {
       </SectionLottery>
       <SectionLotteryNumbers>
         <ContentNumbers>
-          {contest.numeros.map((item: string) => <NumbersLottery key={item}>{item}</NumbersLottery>)}
+          {contest.numeros.map((item: string) => <NumbersLottery data-testid={`number-${item}`} key={item}>{item}</NumbersLottery>)}
         </ContentNumbers>
         <Instructions>Este sorteio é meramente ilustrativo e não possui nenhuma ligação com a CAIXA.</Instructions>
       </SectionLotteryNumbers>   
