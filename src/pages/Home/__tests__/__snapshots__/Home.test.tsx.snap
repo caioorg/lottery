@@ -6,7 +6,7 @@ exports[`Pages Home should render properly 1`] = `
     class="sc-bdvvtL bDGBmc"
   >
     <section
-      class="sc-gsDKAQ kwJXeh"
+      class="sc-gsDKAQ kkkkeT"
       name=""
     >
       <form>
@@ -59,7 +59,7 @@ exports[`Pages Home should render properly 1`] = `
         class="sc-furwcr jBCBiY"
       />
       <p
-        class="sc-pVTFL wzRQG"
+        class="sc-pVTFL jrCaeW"
       >
         Este sorteio é meramente ilustrativo e não possui nenhuma ligação com a CAIXA.
       </p>
