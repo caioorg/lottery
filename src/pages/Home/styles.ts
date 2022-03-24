@@ -42,6 +42,7 @@ export const SectionLottery = styled.section<SectionLotteryProps>`
   padding: ${pixelToRem(92)};
   mask: url(${SideBarSvg}) no-repeat;
   width: 35%;
+  mask-size: cover;
 
   @media ${device.mobileS} {
     width: 100%;
@@ -134,7 +135,7 @@ export const ContentNumbers = styled.div`
 
 export const Instructions = styled.p`
   position: fixed;
-  bottom: ${pixelToRem(90)};
+  bottom: ${pixelToRem(45)};
 
   @media ${device.mobileS} {
     position: initial;
